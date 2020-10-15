@@ -1,3 +1,4 @@
+# importing dependencies
 import numpy as np
 import random
 import h5py
@@ -24,32 +25,17 @@ classes = np.array(test_datasets["list_classes"][:])
 y_train = y_train.reshape((1, y_train.shape[0]))
 y_test = y_test.reshape((1, y_test.shape[0]))
 
-# example of a picture
-# index = random.randint(1, x_train.shape[1])
-# plt.imshow(x_train[index])
-# plt.xlabel("it's a '" +
-#            classes[np.squeeze(y_train[:, index])].decode("utf-8"))
-# plt.show()
-
 
 # finding train, test data number
 m_train = x_train.shape[0]
 m_test = x_test.shape[0]
 num_px = x_train.shape[1]
-
-# Resahping the Train and Test Data
 x_train_flatten = x_train.reshape(m_train, num_px*num_px*3).T
 x_test_flatten = x_test.reshape(m_test, num_px*num_px*3).T
 
-# print("Flatten shape x_train:", x_train_flatten.shape)
-# print("Flatten shape X_test :", x_test_flatten.shape)
 
 x_train = x_train_flatten/255
 x_test = x_test_flatten/255
-
-# DATA Preprocessing ends Here
-
-# Helper Functions
 
 
 def sigmoid(x):
@@ -168,3 +154,4 @@ if __name__ == "__main__":
     plt.xlabel("y = " + str(np.squeeze(my_predicted_image)) + ", your algorithm predicts a \"" +
                classes[int(np.squeeze(my_predicted_image)), ].decode("utf-8") + "\" picture.")
     plt.show()
+# this files are being modified under the guidance of owner of the repo
